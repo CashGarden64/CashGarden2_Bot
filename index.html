@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>টাকা আয় করুন - বিজ্ঞাপন দেখুন</title>
+    <!-- Monetag SDK -->
     <script src='//libtl.com/sdk.js' data-zone='10182944' data-sdk='show_10182944'></script>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -378,7 +380,7 @@
         }
         
         .notification.info {
-            border-left: 4px solid var(--primary-color);
+            border-left: 44px solid var(--primary-color);
         }
         
         @keyframes pulse {
@@ -487,6 +489,7 @@
         <!-- হেডার এর নিচে প্রথম বিজ্ঞাপন -->
         <div class="ad-container">
             <center>
+                <!-- highperformanceformat.com ad -->
                 <script type="text/javascript">
                     atOptions = {
                         'key' : 'af3ac5da264d48edf05886e0c3d572c2',
@@ -557,6 +560,7 @@
             <!-- পৃষ্ঠার মাঝখানে দ্বিতীয় বিজ্ঞাপন -->
             <div class="ad-container">
                 <center>
+                    <!-- highperformanceformat.com ad -->
                     <script type="text/javascript">
                         atOptions = {
                             'key' : 'af3ac5da264d48edf05886e0c3d572c2',
@@ -751,7 +755,7 @@
             // Load user data
             loadUserData();
             updateUI();
-            checkAdReady();
+            checkAdReady(); // Initial check for ad system readiness
             
             // Generate referral link
             generateReferralLink();
@@ -845,13 +849,18 @@
             }, 2000);
         }
 
-        // Check if Monetag ad is ready
+        // Check if Monetag ad is ready (CORRECTED FUNCTION NAME)
         function checkAdReady() {
-            if (typeof window.show_10182944 !== 'function') {
+            if (typeof window.show_10182944 !== 'function') { // Corrected: use 10182944
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-spinner fa-spin"></i> বিজ্ঞাপন সিস্টেম লোড হচ্ছে...';
                 setTimeout(checkAdReady, 1000);
             } else {
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-check-circle"></i> বিজ্ঞাপন দেখতে প্রস্তুত';
+                // Ensure buttons are enabled if ad system is ready and not in auto mode
+                if (!isAutoMode) {
+                    document.getElementById('watch-ad-btn').disabled = false;
+                    document.getElementById('watch-ad-btn-earn').disabled = false;
+                }
             }
         }
 
@@ -893,17 +902,18 @@
 
         // Update progress bar and text
         function updateProgress() {
-            const progressPercent = (earnedPoints / MIN_WITHDRAW_TAKA) * 100;
+            const progressPercent = ((earnedPoints + referralEarnings) / MIN_WITHDRAW_TAKA) * 100; // Adjusted to include referral earnings
             
             document.getElementById('progress-fill').style.width = `${Math.min(progressPercent, 100)}%`;
-            document.getElementById('ads-progress').textContent = `${earnedPoints.toFixed(2)}/${MIN_WITHDRAW_TAKA} টাকা`;
+            document.getElementById('ads-progress').textContent = `${(earnedPoints + referralEarnings).toFixed(2)}/${MIN_WITHDRAW_TAKA} টাকা`;
         }
 
-        // Function to watch an ad and earn points
+        // Function to watch an ad and earn points (CORRECTED AD FUNCTION CALL)
         function watchAd() {
             if (isAdLoading) return;
             
-            if (typeof window.show_9472189 !== 'function') {
+            // Corrected: Use the actual SDK function name from your HTML
+            if (typeof window.show_10182944 !== 'function') { 
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> বিজ্ঞাপন সিস্টেম প্রস্তুত নয়। দয়া করে অপেক্ষা করুন...';
                 return;
             }
@@ -914,8 +924,8 @@
             document.getElementById('ad-status').innerHTML = '<i class="fas fa-spinner fa-spin"></i> বিজ্ঞাপন লোড হচ্ছে...';
             
             try {
-                // Show the ad
-                window.show_10160950().then(() => {
+                // Show the ad - Corrected: Call the actual SDK function from your HTML
+                window.show_10182944().then(() => {
                     // Ad watched successfully
                     watchedAdsCount++;
                     earnedPoints += POINTS_PER_AD;
@@ -925,7 +935,7 @@
                     document.getElementById('ad-status').innerHTML = '<i class="fas fa-check-circle"></i> বিজ্ঞাপন সফলভাবে দেখা হয়েছে!';
                     
                     // Show coin animation
-                    createCoinAnimation();
+                    createCoinAnimation(document.getElementById('watch-ad-btn'));
                     
                     // Show success notification
                     showNotification(`২ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
@@ -939,9 +949,7 @@
                     if (isAutoMode) {
                         setTimeout(() => {
                             isAdLoading = false;
-                            document.getElementById('watch-ad-btn').disabled = false;
-                            document.getElementById('watch-ad-btn-earn').disabled = false;
-                            watchAd();
+                            watchAd(); // Call watchAd again for auto mode
                         }, 10000); // 10 seconds delay between auto ads
                     } else {
                         isAdLoading = false;
@@ -952,11 +960,12 @@
                     console.error('Error showing ad:', error);
                     document.getElementById('ad-status').innerHTML = '<i class="fas fa-times-circle"></i> বিজ্ঞাপন দেখানো যায়নি। আবার চেষ্টা করুন।';
                     isAdLoading = false;
-                    document.getElementById('watch-ad-btn').disabled = false;
-                    document.getElementById('watch-ad-btn-earn').disabled = false;
                     
                     if (isAutoMode) {
                         setTimeout(watchAd, 10000); // Retry after 10 seconds
+                    } else {
+                        document.getElementById('watch-ad-btn').disabled = false;
+                        document.getElementById('watch-ad-btn-earn').disabled = false;
                     }
                 });
             } catch (error) {
@@ -969,9 +978,8 @@
         }
 
         // Create coin animation
-        function createCoinAnimation() {
-            const button = document.getElementById('watch-ad-btn');
-            const rect = button.getBoundingClientRect();
+        function createCoinAnimation(buttonElement) { // Pass button element to get its position
+            const rect = buttonElement.getBoundingClientRect();
             const x = rect.left + rect.width / 2;
             const y = rect.top + rect.height / 2;
             
@@ -1004,12 +1012,19 @@
         // Stop auto ads mode
         function stopAutoAds() {
             isAutoMode = false;
+            // Clear any pending auto ad interval if it was set explicitly (though watchAd handles recursion)
+            // if (autoAdInterval) clearTimeout(autoAdInterval); 
+
             document.getElementById('auto-ad-btn').disabled = false;
             document.getElementById('auto-ad-btn-earn').disabled = false;
             document.getElementById('stop-auto-btn').disabled = true;
             document.getElementById('stop-auto-btn-earn').disabled = true;
-            document.getElementById('watch-ad-btn').disabled = false;
-            document.getElementById('watch-ad-btn-earn').disabled = false;
+            
+            // Only re-enable watch ad button if ad system is ready
+            if (typeof window.show_10182944 === 'function') {
+                document.getElementById('watch-ad-btn').disabled = false;
+                document.getElementById('watch-ad-btn-earn').disabled = false;
+            }
             document.getElementById('ad-status').innerHTML = '<i class="fas fa-check-circle"></i> স্বয়ংক্রিয় বিজ্ঞাপন মোড বন্ধ';
         }
 
@@ -1025,7 +1040,13 @@
                     `ন্যূনতম উত্তোলন পরিমাণ ${MIN_WITHDRAW_TAKA} টাকা। আপনার আছে ${totalEarnings.toFixed(2)} টাকা।`;
                 document.getElementById('withdraw-status').className = 'error-message';
                 document.getElementById('withdraw-section').style.display = 'block';
-                return;
+                document.getElementById('withdraw-amount').disabled = true; // Disable if not enough balance
+                document.getElementById('payment-method').disabled = true;
+                document.getElementById('withdraw-phone').disabled = true;
+            } else {
+                document.getElementById('withdraw-amount').disabled = false;
+                document.getElementById('payment-method').disabled = false;
+                document.getElementById('withdraw-phone').disabled = false;
             }
             
             document.getElementById('withdraw-amount').value = '';
@@ -1076,18 +1097,23 @@
                 return;
             }
             
-            // Calculate points to deduct
-            let remainingAmount = amount;
+            // Deduct points
+            // This logic needs to be careful to not go below zero and correctly reflect total earned vs withdrawable
+            let remainingAmountToDeduct = amount;
             
-            if (referralEarnings > 0) {
-                const referralDeduction = Math.min(referralEarnings, remainingAmount);
-                referralEarnings -= referralDeduction;
-                remainingAmount -= referralDeduction;
+            // Deduct from referralEarnings first
+            if (referralEarnings >= remainingAmountToDeduct) {
+                referralEarnings -= remainingAmountToDeduct;
+                remainingAmountToDeduct = 0;
+            } else if (referralEarnings > 0) {
+                remainingAmountToDeduct -= referralEarnings;
+                referralEarnings = 0;
             }
-            
-            if (remainingAmount > 0) {
-                earnedPoints -= remainingAmount;
-                if (earnedPoints < 0) earnedPoints = 0;
+
+            // Then deduct from earnedPoints
+            if (remainingAmountToDeduct > 0) {
+                earnedPoints -= remainingAmountToDeduct;
+                if (earnedPoints < 0) earnedPoints = 0; // Should not happen if amount <= totalEarnings
             }
             
             // Save and update UI
@@ -1102,7 +1128,7 @@
                              `📞 ফোন: ${phoneNumber}\n\n` +
                              `📊 দেখা বিজ্ঞাপন: ${watchedAdsCount}\n` +
                              `👥 আমন্ত্রিত: ${referralCount}\n` +
-                             `💵 মোট আয়: ${totalEarnings.toFixed(2)} টাকা`;
+                             `💵 বর্তমান মোট আয়: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`; // Show updated total after withdrawal
             
             // Send to admin via Telegram
             sendWithdrawRequestToAdmin(message);
@@ -1156,7 +1182,3 @@
     </script>
 </body>
 </html>
-
-
-
-
