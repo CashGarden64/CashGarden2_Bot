@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>টাকা আয় করুন - বিজ্ঞাপন দেখুন</title>
+
+    <!-- Open Graph Meta Tags for Referral Card -->
+    <meta property="og:title" content="CASH GARDEN Bot 💸টাকা বাগান💸" />
+    <meta property="og:description" content="শুধু বিজ্ঞাপন দেখে আয় করুন এই অ্যাপ থেকে। প্রতিদিন পেমেন্ট নিন, দ্রুত ও ১০০% বিশ্বস্ততার সাথে!" />
+    <meta property="og:image" content="https://i.imgur.com/your_image_url.jpg" /> <!-- !!! এখানে আপনার ছবির আসল URL দিন !!! -->
+    <meta property="og:url" id="og-url" content="https://cashgarden64.github.io/-CashGarden_Bot?ref=YOUR_USER_ID" /> <!-- এটি JavaScript দ্বারা আপডেট করা হবে -->
+    <meta property="og:type" content="website" />
+    <!-- End Open Graph Meta Tags -->
+
     <!-- Monetag SDK -->
     <script src='//libtl.com/sdk.js' data-zone='10182944' data-sdk='show_10182944'></script>
     <!-- Font Awesome for icons -->
@@ -380,7 +389,7 @@
         }
         
         .notification.info {
-            border-left: 44px solid var(--primary-color);
+            border-left: 4px solid var(--primary-color); /* Corrected: Changed 44px to 4px */
         }
         
         @keyframes pulse {
@@ -763,7 +772,7 @@
             updateUI();
             checkAdReady(); // Initial check for ad system readiness
             
-            // Generate referral link
+            // Generate referral link (and update OG meta tag)
             generateReferralLink();
 
             // Update min withdrawal text in progress bar
@@ -833,11 +842,19 @@
             }
         }
 
-        // Generate referral link
+        // Generate referral link and update Open Graph URL meta tag
         function generateReferralLink() {
             const currentUrl = window.location.href.split('?')[0];
             const referralLink = `${currentUrl}?ref=${userId}`;
+            
+            // Update the input field
             document.getElementById('referral-link').value = referralLink;
+            
+            // Update the Open Graph URL meta tag
+            const ogUrlMeta = document.getElementById('og-url');
+            if (ogUrlMeta) {
+                ogUrlMeta.setAttribute('content', referralLink);
+            }
         }
 
         // Copy referral link to clipboard
