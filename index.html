@@ -499,7 +499,7 @@
                         'params' : {}
                     };
                 </script>
-                <script type="text/javascript" src="//www.highperformanceformat.com/af3ac5da264d48edf05886e0c3d572c2/invoke.js"></script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/af3ac5da264d48edf058886e0c3d572c2/invoke.js"></script>
             </center>
         </div>
         
@@ -527,14 +527,14 @@
             <div class="progress-container">
                 <div class="progress-header">
                     <h3>আজকের অগ্রগতি</h3>
-                    <span id="ads-progress">0/10</span>
+                    <span id="ads-progress">0/20</span>
                 </div>
                 <div class="progress-bar">
                     <div class="progress-fill" id="progress-fill"></div>
                 </div>
                 <div class="progress-text">
                     <span>0 টাকা</span>
-                    <span>৫০০ টাকা</span>
+                    <span><span id="min-withdrawal-progress">5000</span> টাকা</span>
                 </div>
             </div>
             
@@ -570,7 +570,7 @@
                             'params' : {}
                         };
                     </script>
-                    <script type="text/javascript" src="//www.highperformanceformat.com/af3ac5da264d48edf05886e0c3d572c2/invoke.js"></script>
+                    <script type="text/javascript" src="//www.highperformanceformat.com/af3ac5da264d48edf058886e0c3d572c2/invoke.js"></script>
                 </center>
             </div>
             
@@ -589,8 +589,9 @@
             
             <div class="rate-info">
                 <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ১০ টাকা</p>
-                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ৫০০ টাকা</p>
+                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ৫০০০ টাকা</p>
                 <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ২০ টাকা প্রতি ব্যবহারকারী</p>
+                <p><i class="fas fa-chart-line"></i> দৈনিক সর্বোচ্চ বিজ্ঞাপন: ২০টি</p>
             </div>
         </div>
         
@@ -600,7 +601,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn-earn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (10 টাকা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (১০ টাকা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn-earn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -626,6 +627,7 @@
             <div class="rate-info">
                 <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ১০ টাকা</p>
                 <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ২০ টাকা প্রতি ব্যবহারকারী</p>
+                <p><i class="fas fa-chart-line"></i> দৈনিক সর্বোচ্চ বিজ্ঞাপন: ২০টি</p>
             </div>
         </div>
         
@@ -641,7 +643,7 @@
             <div class="withdraw-section" id="withdraw-section">
                 <div class="form-group">
                     <label for="withdraw-amount">পরিমাণ (টাকা)</label>
-                    <input type="number" id="withdraw-amount" class="form-control" placeholder="টাকার পরিমাণ লিখুন" min="500">
+                    <input type="number" id="withdraw-amount" class="form-control" placeholder="টাকার পরিমাণ লিখুন" min="5000">
                 </div>
                 <div class="form-group">
                     <label for="payment-method">পেমেন্ট মাধ্যম</label>
@@ -663,7 +665,7 @@
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ৫০০ টাকা</p>
+                <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ৫০০০ টাকা</p>
                 <p><i class="fas fa-clock"></i> উত্তোলন প্রসেসিং সময়: ২৪-৪৮ ঘন্টা</p>
             </div>
         </div>
@@ -687,7 +689,7 @@
                 
                 <div class="stat-card">
                     <h3><i class="fas fa-exclamation-triangle"></i> গুরুত্বপূর্ণ নোটিশ</h3>
-                    <p>উত্তোলনের জন্য ন্যূনতম ৫০০ টাকা প্রয়োজন। দয়া করে উত্তোলন করার আগে নিশ্চিত হয়ে নিন।</p>
+                    <p>উত্তোলনের জন্য ন্যূনতম ৫০০০ টাকা প্রয়োজন। দয়া করে উত্তোলন করার আগে নিশ্চিত হয়ে নিন।</p>
                     <small>১ সপ্তাহ আগে</small>
                 </div>
             </div>
@@ -726,8 +728,9 @@
     <script>
         // Constants
         const POINTS_PER_AD = 10.00; // প্রতি বিজ্ঞাপনে ১০ টাকা
-        const MIN_WITHDRAW_TAKA = 500; // ন্যূনতম উত্তোলন ৫০০ টাকা
+        const MIN_WITHDRAW_TAKA = 5000; // ন্যূনতম উত্তোলন ৫০০০ টাকা
         const REFERRAL_BONUS = 20.00; // রেফারেল বোনাস ২০ টাকা
+        const MAX_ADS_PER_DAY = 20; // দৈনিক সর্বোচ্চ ২০টি বিজ্ঞাপন দেখা যাবে
         
         // Telegram Bot Configuration - এখানে আপনার বটের তথ্য দিন
         const BOT_TOKEN = "8514820513:AAE8r-4YeQDjgBKDPjJmQXvnYhXK7H6tCq0"; // আপনার বট টোকেন
@@ -742,6 +745,8 @@
         let autoAdInterval;
         let isAutoMode = false;
         let isAdLoading = false;
+        let lastAdDate = ''; // শেষ বিজ্ঞাপন দেখার তারিখ
+        let dailyAdsWatched = 0; // আজকের দিনে দেখা বিজ্ঞাপনের সংখ্যা
 
         // Initialize the app
         function initApp() {
@@ -754,11 +759,15 @@
             
             // Load user data
             loadUserData();
+            updateDailyAdCount(); // দৈনিক বিজ্ঞাপনের সংখ্যা আপডেট করুন
             updateUI();
             checkAdReady(); // Initial check for ad system readiness
             
             // Generate referral link
             generateReferralLink();
+
+            // Update min withdrawal text in progress bar
+            document.getElementById('min-withdrawal-progress').textContent = MIN_WITHDRAW_TAKA;
         }
 
         // পেজ দেখানোর ফাংশন
@@ -817,6 +826,8 @@
                     // In a real app, you would send this to your backend
                     setTimeout(() => {
                         console.log(`User ${referrerId} should get referral bonus`);
+                        // This part needs to be handled by a backend to securely add bonus to referrer
+                        // For now, we'll just log it.
                     }, 1000);
                 }
             }
@@ -856,11 +867,31 @@
                 setTimeout(checkAdReady, 1000);
             } else {
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-check-circle"></i> বিজ্ঞাপন দেখতে প্রস্তুত';
-                // Ensure buttons are enabled if ad system is ready and not in auto mode
-                if (!isAutoMode) {
+                // Ensure buttons are enabled if ad system is ready and not in auto mode, and daily limit not reached
+                if (!isAutoMode && dailyAdsWatched < MAX_ADS_PER_DAY) {
                     document.getElementById('watch-ad-btn').disabled = false;
                     document.getElementById('watch-ad-btn-earn').disabled = false;
+                    document.getElementById('auto-ad-btn').disabled = false;
+                    document.getElementById('auto-ad-btn-earn').disabled = false;
+                } else if (dailyAdsWatched >= MAX_ADS_PER_DAY) {
+                    document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> আজকের দৈনিক বিজ্ঞাপন সীমা শেষ হয়েছে। আগামীকাল আবার চেষ্টা করুন।';
+                    document.getElementById('watch-ad-btn').disabled = true;
+                    document.getElementById('watch-ad-btn-earn').disabled = true;
+                    document.getElementById('auto-ad-btn').disabled = true;
+                    document.getElementById('auto-ad-btn-earn').disabled = true;
                 }
+            }
+        }
+
+        // Reset daily ad count if date changes
+        function updateDailyAdCount() {
+            const today = new Date().toDateString();
+            if (localStorage.getItem('lastAdDate') !== today) {
+                dailyAdsWatched = 0;
+                localStorage.setItem('lastAdDate', today);
+                localStorage.setItem('dailyAdsWatched', 0);
+            } else {
+                dailyAdsWatched = parseInt(localStorage.getItem('dailyAdsWatched') || '0');
             }
         }
 
@@ -881,6 +912,10 @@
             if (localStorage.getItem('referralEarnings')) {
                 referralEarnings = parseFloat(localStorage.getItem('referralEarnings'));
             }
+
+            if (localStorage.getItem('lastAdDate')) {
+                lastAdDate = localStorage.getItem('lastAdDate');
+            }
         }
 
         // Save user data to localStorage
@@ -889,6 +924,8 @@
             localStorage.setItem('earnedPoints', earnedPoints.toFixed(2));
             localStorage.setItem('referralCount', referralCount);
             localStorage.setItem('referralEarnings', referralEarnings.toFixed(2));
+            localStorage.setItem('dailyAdsWatched', dailyAdsWatched);
+            localStorage.setItem('lastAdDate', lastAdDate);
         }
 
         // Update all UI elements
@@ -902,16 +939,29 @@
 
         // Update progress bar and text
         function updateProgress() {
-            const progressPercent = ((earnedPoints + referralEarnings) / MIN_WITHDRAW_TAKA) * 100; // Adjusted to include referral earnings
+            const currentTotal = (earnedPoints + referralEarnings);
+            const progressPercent = (currentTotal / MIN_WITHDRAW_TAKA) * 100; // Adjusted to include referral earnings
             
             document.getElementById('progress-fill').style.width = `${Math.min(progressPercent, 100)}%`;
-            document.getElementById('ads-progress').textContent = `${(earnedPoints + referralEarnings).toFixed(2)}/${MIN_WITHDRAW_TAKA} টাকা`;
+            document.getElementById('ads-progress').textContent = `${dailyAdsWatched}/${MAX_ADS_PER_DAY} (${currentTotal.toFixed(2)}/${MIN_WITHDRAW_TAKA} টাকা)`;
+            document.getElementById('min-withdrawal-progress').textContent = MIN_WITHDRAW_TAKA;
         }
 
         // Function to watch an ad and earn points (CORRECTED AD FUNCTION CALL)
         function watchAd() {
+            updateDailyAdCount(); // Check and reset daily count if needed
+
             if (isAdLoading) return;
             
+            if (dailyAdsWatched >= MAX_ADS_PER_DAY) {
+                document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> আজকের দৈনিক বিজ্ঞাপন সীমা শেষ হয়েছে। আগামীকাল আবার চেষ্টা করুন।';
+                document.getElementById('watch-ad-btn').disabled = true;
+                document.getElementById('watch-ad-btn-earn').disabled = true;
+                document.getElementById('auto-ad-btn').disabled = true;
+                document.getElementById('auto-ad-btn-earn').disabled = true;
+                return;
+            }
+
             // Corrected: Use the actual SDK function name from your HTML
             if (typeof window.show_10182944 !== 'function') { 
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> বিজ্ঞাপন সিস্টেম প্রস্তুত নয়। দয়া করে অপেক্ষা করুন...';
@@ -929,6 +979,8 @@
                     // Ad watched successfully
                     watchedAdsCount++;
                     earnedPoints += POINTS_PER_AD;
+                    dailyAdsWatched++;
+                    lastAdDate = new Date().toDateString();
                     
                     saveUserData();
                     updateUI();
@@ -938,7 +990,7 @@
                     createCoinAnimation(document.getElementById('watch-ad-btn'));
                     
                     // Show success notification
-                    showNotification(`২ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
+                    showNotification(`১০ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
                     
                     // Check if earned enough for withdrawal
                     if (earnedPoints + referralEarnings >= MIN_WITHDRAW_TAKA) {
@@ -953,8 +1005,14 @@
                         }, 10000); // 10 seconds delay between auto ads
                     } else {
                         isAdLoading = false;
-                        document.getElementById('watch-ad-btn').disabled = false;
-                        document.getElementById('watch-ad-btn-earn').disabled = false;
+                        if (dailyAdsWatched < MAX_ADS_PER_DAY) {
+                            document.getElementById('watch-ad-btn').disabled = false;
+                            document.getElementById('watch-ad-btn-earn').disabled = false;
+                            document.getElementById('auto-ad-btn').disabled = false;
+                            document.getElementById('auto-ad-btn-earn').disabled = false;
+                        } else {
+                            document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> আজকের দৈনিক বিজ্ঞাপন সীমা শেষ হয়েছে। আগামীকাল আবার চেষ্টা করুন।';
+                        }
                     }
                 }).catch(error => {
                     console.error('Error showing ad:', error);
@@ -964,16 +1022,24 @@
                     if (isAutoMode) {
                         setTimeout(watchAd, 10000); // Retry after 10 seconds
                     } else {
-                        document.getElementById('watch-ad-btn').disabled = false;
-                        document.getElementById('watch-ad-btn-earn').disabled = false;
+                        if (dailyAdsWatched < MAX_ADS_PER_DAY) {
+                            document.getElementById('watch-ad-btn').disabled = false;
+                            document.getElementById('watch-ad-btn-earn').disabled = false;
+                            document.getElementById('auto-ad-btn').disabled = false;
+                            document.getElementById('auto-ad-btn-earn').disabled = false;
+                        }
                     }
                 });
             } catch (error) {
                 console.error('Error in ad system:', error);
                 document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-triangle"></i> বিজ্ঞাপন সিস্টেমে ত্রুটি। পৃষ্ঠাটি রিফ্রেশ করুন।';
                 isAdLoading = false;
-                document.getElementById('watch-ad-btn').disabled = false;
-                document.getElementById('watch-ad-btn-earn').disabled = false;
+                if (dailyAdsWatched < MAX_ADS_PER_DAY) {
+                    document.getElementById('watch-ad-btn').disabled = false;
+                    document.getElementById('watch-ad-btn-earn').disabled = false;
+                    document.getElementById('auto-ad-btn').disabled = false;
+                    document.getElementById('auto-ad-btn-earn').disabled = false;
+                }
             }
         }
 
@@ -997,6 +1063,13 @@
 
         // Start auto ads mode
         function startAutoAds() {
+            updateDailyAdCount(); // Check and reset daily count if needed
+
+            if (dailyAdsWatched >= MAX_ADS_PER_DAY) {
+                document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> আজকের দৈনিক বিজ্ঞাপন সীমা শেষ হয়েছে। স্বয়ংক্রিয় বিজ্ঞাপন শুরু করা যাচ্ছে না।';
+                return;
+            }
+
             isAutoMode = true;
             document.getElementById('auto-ad-btn').disabled = true;
             document.getElementById('auto-ad-btn-earn').disabled = true;
@@ -1020,11 +1093,14 @@
             document.getElementById('stop-auto-btn').disabled = true;
             document.getElementById('stop-auto-btn-earn').disabled = true;
             
-            // Only re-enable watch ad button if ad system is ready
-            if (typeof window.show_10182944 === 'function') {
+            // Only re-enable watch ad button if ad system is ready and daily limit not reached
+            if (typeof window.show_10182944 === 'function' && dailyAdsWatched < MAX_ADS_PER_DAY) {
                 document.getElementById('watch-ad-btn').disabled = false;
                 document.getElementById('watch-ad-btn-earn').disabled = false;
+            } else if (dailyAdsWatched >= MAX_ADS_PER_DAY) {
+                document.getElementById('ad-status').innerHTML = '<i class="fas fa-exclamation-circle"></i> আজকের দৈনিক বিজ্ঞাপন সীমা শেষ হয়েছে। আগামীকাল আবার চেষ্টা করুন।';
             }
+
             document.getElementById('ad-status').innerHTML = '<i class="fas fa-check-circle"></i> স্বয়ংক্রিয় বিজ্ঞাপন মোড বন্ধ';
         }
 
@@ -1182,5 +1258,3 @@
     </script>
 </body>
 </html>
-
-
