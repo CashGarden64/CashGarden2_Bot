@@ -544,7 +544,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (১০ টাকা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (৫০ টাকা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -580,7 +580,7 @@
                     <div>আমন্ত্রিত: <strong id="referral-count">0</strong></div>
                     <div>আয়: <strong id="referral-earnings">0.00</strong> টাকা</div>
                 </div>
-                <p style="font-size: 14px; margin-bottom: 10px;">আপনার রেফারেল লিঙ্ক শেয়ার করুন এবং প্রতিটি বন্ধুর জন্য ২০ টাকা বোনাস পান!</p>
+                <p style="font-size: 14px; margin-bottom: 10px;">আপনার রেফারেল লিঙ্ক শেয়ার করুন এবং প্রতিটি বন্ধুর জন্য ৮০ টাকা বোনাস পান!</p>
                 <div class="referral-link-container">
                     <input type="text" id="referral-link" readonly>
                     <button id="copy-referral" onclick="copyReferralLink()">কপি</button>
@@ -588,9 +588,9 @@
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ১০ টাকা</p>
+                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ৫০ টাকা</p>
                 <p><i class="fas fa-money-bill-wave"></i> ন্যূনতম উত্তোলন: ৫০০০ টাকা</p>
-                <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ২০ টাকা প্রতি ব্যবহারকারী</p>
+                <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ৮০ টাকা প্রতি ব্যবহারকারী</p>
                 <p><i class="fas fa-chart-line"></i> দৈনিক সর্বোচ্চ বিজ্ঞাপন: ২০টি</p>
             </div>
         </div>
@@ -601,7 +601,7 @@
             
             <div class="action-buttons">
                 <button class="btn btn-primary" id="watch-ad-btn-earn" onclick="watchAd()">
-                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (১০ টাকা)
+                    <i class="fas fa-play"></i> বিজ্ঞাপন দেখুন (৫০ টাকা)
                 </button>
                 <button class="btn btn-success" id="auto-ad-btn-earn" onclick="startAutoAds()">
                     <i class="fas fa-robot"></i> স্বয়ংক্রিয় বিজ্ঞাপন
@@ -617,7 +617,7 @@
                     <div>আমন্ত্রিত: <strong id="referral-count-earn">0</strong></div>
                     <div>আয়: <strong id="referral-earnings-earn">0.00</strong> টাকা</div>
                 </div>
-                <p style="font-size: 14px; margin-bottom: 10px;">আপনার রেফারেল লিঙ্ক শেয়ার করুন এবং প্রতিটি বন্ধুর জন্য ২০ টাকা বোনাস পান!</p>
+                <p style="font-size: 14px; margin-bottom: 10px;">আপনার রেফারেল লিঙ্ক শেয়ার করুন এবং প্রতিটি বন্ধুর জন্য ৮০ টাকা বোনাস পান!</p>
                 <div class="referral-link-container">
                     <input type="text" id="referral-link-earn" readonly>
                     <button id="copy-referral-earn" onclick="copyReferralLink()">কপি</button>
@@ -625,8 +625,8 @@
             </div>
             
             <div class="rate-info">
-                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ১০ টাকা</p>
-                <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ২০ টাকা প্রতি ব্যবহারকারী</p>
+                <p><i class="fas fa-ad"></i> প্রতি বিজ্ঞাপন = ৫০ টাকা</p>
+                <p><i class="fas fa-gift"></i> রেফারেল বোনাস: ৮০ টাকা প্রতি ব্যবহারকারী</p>
                 <p><i class="fas fa-chart-line"></i> দৈনিক সর্বোচ্চ বিজ্ঞাপন: ২০টি</p>
             </div>
         </div>
@@ -727,9 +727,9 @@
 
     <script>
         // Constants
-        const POINTS_PER_AD = 10.00; // প্রতি বিজ্ঞাপনে ১০ টাকা
+        const POINTS_PER_AD = 50.00; // প্রতি বিজ্ঞাপনে ৫০ টাকা
         const MIN_WITHDRAW_TAKA = 5000; // ন্যূনতম উত্তোলন ৫০০০ টাকা
-        const REFERRAL_BONUS = 20.00; // রেফারেল বোনাস ২০ টাকা
+        const REFERRAL_BONUS = 80.00; // রেফারেল বোনাস ৮০ টাকা
         const MAX_ADS_PER_DAY = 20; // দৈনিক সর্বোচ্চ ২০টি বিজ্ঞাপন দেখা যাবে
         
         // Telegram Bot Configuration - এখানে আপনার বটের তথ্য দিন
@@ -821,7 +821,7 @@
                 // Check if this is first visit and not already referred
                 if (!localStorage.getItem('referredBy')) {
                     localStorage.setItem('referredBy', referrerId);
-                    showNotification('আপনি একটি রেফারেল লিঙ্ক ব্যবহার করে যোগদান করেছেন! রেফারার ২০ টাকা বোনাস পাবেন।', 'success');
+                    showNotification('আপনি একটি রেফারেল লিঙ্ক ব্যবহার করে যোগদান করেছেন! রেফারার ৮০ টাকা বোনাস পাবেন।', 'success');
                     
                     // In a real app, you would send this to your backend
                     setTimeout(() => {
@@ -990,7 +990,7 @@
                     createCoinAnimation(document.getElementById('watch-ad-btn'));
                     
                     // Show success notification
-                    showNotification(`১০ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
+                    showNotification(`৫০ টাকা যোগ হয়েছে! আপনার ব্যালেন্স: ${(earnedPoints + referralEarnings).toFixed(2)} টাকা`, 'success');
                     
                     // Check if earned enough for withdrawal
                     if (earnedPoints + referralEarnings >= MIN_WITHDRAW_TAKA) {
@@ -1258,3 +1258,4 @@
     </script>
 </body>
 </html>
+
